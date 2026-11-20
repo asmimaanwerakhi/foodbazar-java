@@ -1,18 +1,18 @@
 # Food Bazar
 
-Spring Boot, Thymeleaf এবং SQLite ব্যবহার করে তৈরি একটি food delivery management application। এই প্রজেক্টে সাধারণ user, restaurant এবং delivery role-ভিত্তিক signup, login, food management, order এবং delivery flow আছে।
+Food Bazar is a food delivery management application built with Spring Boot, Thymeleaf, and SQLite. The project includes role-based signup and login for users, restaurants, and delivery personnel, along with food management, ordering, and delivery workflows.
 
-## প্রধান ফিচার
+## Key Features
 
-- User, restaurant এবং delivery account signup/login
-- Restaurant food item add ও management
-- Customer-এর জন্য food ও order flow
-- Restaurant থেকে delivery request পাঠানো
-- Delivery worker-এর জন্য available এবং active delivery dashboard
-- Delivery accept ও complete করার ব্যবস্থা
-- Thymeleaf template-based responsive UI
-- SQLite database এবং JPA/Hibernate data access
-- Local filesystem থেকে image upload ও serving
+- Signup and login for user, restaurant, and delivery accounts
+- Restaurant food item creation and management
+- Food browsing and order flow for customers
+- Delivery requests sent by restaurants
+- Available and active delivery dashboards
+- Delivery acceptance and completion workflow
+- Thymeleaf-based web interface
+- SQLite database access through JPA and Hibernate
+- Image uploads stored in and served from the local filesystem
 
 ## Technology Stack
 
@@ -25,32 +25,32 @@ Spring Boot, Thymeleaf এবং SQLite ব্যবহার করে তৈ�
 - Maven
 - Lombok
 
-## প্রয়োজনীয় সফটওয়্যার
+## Requirements
 
 - JDK 25
-- Maven (অথবা প্রজেক্টের included Maven Wrapper)
+- Maven, or the included Maven Wrapper
 
-কমান্ড চালানোর আগে Java version পরীক্ষা করুন:
+Verify your Java installation:
 
 ```powershell
 java -version
 ```
 
-## কীভাবে চালাবেন
+## Running the Application
 
-প্রজেক্টের root folder-এ terminal খুলুন:
+Open a terminal in the project root directory and run:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-অথবা Maven ব্যবহার করে:
+Alternatively, use Maven:
 
 ```powershell
 mvn spring-boot:run
 ```
 
-অ্যাপ চালু হওয়ার পর ব্রাউজারে খুলুন:
+After the application starts, open:
 
 ```text
 http://localhost:8080
@@ -58,7 +58,7 @@ http://localhost:8080
 
 ## Database
 
-SQLite database-এর configuration [application.properties](src/main/resources/application.properties)-এ আছে।
+The SQLite database configuration is defined in [application.properties](src/main/resources/application.properties).
 
 ```properties
 spring.datasource.url=jdbc:sqlite:src/main/resources/database/app.db
@@ -70,13 +70,13 @@ Database file:
 src/main/resources/database/app.db
 ```
 
-`spring.jpa.hibernate.ddl-auto=update` configuration-এর কারণে application চলাকালে entity অনুযায়ী schema update করা হয়।
+The `spring.jpa.hibernate.ddl-auto=update` setting updates the database schema based on the application entities at runtime.
 
 ## File Upload
 
-Uploaded image [uploads](uploads/) folder-এ সংরক্ষিত হয় এবং public static resource হিসেবে serve করা হয়। একক upload-এর সর্বোচ্চ size 10 MB।
+Uploaded images are stored in the [uploads](uploads/) directory and served as public static resources. The maximum size for a single file upload is 10 MB.
 
-## গুরুত্বপূর্ণ routes
+## Important Routes
 
 | Route | Description |
 | --- | --- |
@@ -84,11 +84,11 @@ Uploaded image [uploads](uploads/) folder-এ সংরক্ষিত হয়
 | `/signup` | Account signup |
 | `/login` | Login |
 | `/user/dashboard` | User dashboard |
-| `/user/orders` | User-এর order list |
+| `/user/orders` | User order list |
 | `/restaurant/dashboard` | Restaurant dashboard |
-| `/restaurant/food/add` | নতুন food add |
-| `/restaurant/foods` | Restaurant-এর food list |
-| `/restaurant/orders` | Restaurant-এর orders |
+| `/restaurant/food/add` | Add a new food item |
+| `/restaurant/foods` | Restaurant food list |
+| `/restaurant/orders` | Restaurant orders |
 | `/delivery/dashboard` | Delivery dashboard |
 
 ## Project Structure
@@ -110,15 +110,15 @@ src/
 └── test/
 ```
 
-## Build ও test
+## Build and Test
 
-প্রজেক্ট build করতে:
+Build the project:
 
 ```powershell
 .\mvnw.cmd clean package
 ```
 
-Test run করতে:
+Run the tests:
 
 ```powershell
 .\mvnw.cmd test
@@ -126,4 +126,4 @@ Test run করতে:
 
 ## IDE setup
 
-VS Code বা IntelliJ IDEA-তে project folder খুলুন। IntelliJ IDEA বা VS Code-এর Java Extension Pack JDK 25 detect ও configure করতে সহায়তা করবে।
+Open the project folder in VS Code or IntelliJ IDEA. The Java extension in VS Code or IntelliJ IDEA can detect and configure JDK 25 for the project.
