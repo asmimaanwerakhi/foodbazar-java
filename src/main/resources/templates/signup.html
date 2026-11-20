@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+
+<h2>Create Account</h2>
+
+<form method="post" action="/signup">
+
+    Email:<br>
+    <input type="email" name="email" required><br><br>
+
+    Password:<br>
+    <input type="password" name="password" required><br><br>
+
+    Account Type:<br>
+    <select name="role" required>
+        <option value="">-- Select Type --</option>
+        <option value="USER">Normal User</option>
+        <option value="RESTAURANT">Restaurant</option>
+        <option value="DELIVERY">Delivery Boy</option>
+    </select><br><br>
+
+    <button type="submit">Next</button>
+</form>
+
+</body>
+</html>

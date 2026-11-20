@@ -1,0 +1,11 @@
+<h2>📦 My Orders</h2>
+
+<div th:each="o : ${orders}">
+    Order ID: <b th:text="${o.id}"></b><br>
+    Total: ৳ <span th:text="${o.totalPrice}"></span><br>
+    Address: <span th:text="${o.deliveryAddress}"></span><br>
+    Status: <b th:text="${o.status}"></b>
+    <hr>
+</div>
+
+<a href="/">⬅ Back to Home</a>

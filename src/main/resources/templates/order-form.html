@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Place Order</title>
+</head>
+<body>
+
+<h2>🛒 Order Food</h2>
+
+<h3 th:text="${food.foodName}"></h3>
+Price: ৳ <span th:text="${food.price}"></span>
+
+<form method="post" action="/order/save">
+
+    <input type="hidden" name="foodId" th:value="${food.id}">
+
+    Quantity:
+    <input type="number" name="quantity" value="1" min="1" required>
+    <br><br>
+
+    Delivery Address:<br>
+    <textarea name="address" rows="4" cols="40" required></textarea>
+    <br><br>
+
+    <button type="submit">✅ Confirm Order</button>
+
+</form>
+
+<a href="/">⬅ Back</a>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h2>My Food Posts</h2>
+
+<div th:each="f : ${foods}">
+    <h3 th:text="${f.foodName}"></h3>
+    Price: ৳ <span th:text="${f.price}"></span><br>
+    <p th:text="${f.description}"></p>
+
+    <img th:src="@{'/uploads/' + ${f.imageName}}"
+         width="200">
+
+    <hr>
+</div>
+
+<a href="/restaurant/food/add">➕ Add New Food</a><br>
+<a href="/restaurant/dashboard">⬅ Dashboard</a>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="headermenu">
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+            background: #222;
+            color: white;
+        }
+        .nav-center a, .nav-right a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="navbar">
+
+        <!-- LEFT -->
+        <div><b>🍔 FoodBazar</b></div>
+
+        <!-- CENTER -->
+        <div class="nav-center">
+            <a href="/">Home</a>
+            <a href="/foods">Foods</a>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="nav-right">
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<h2>User Information</h2>
+
+<form method="post" action="/signup/user">
+    <input type="hidden" name="userId" th:value="${userId}"/>
+
+    Name:<br>
+    <input type="text" name="name" required><br><br>
+
+    NID:<br>
+    <input type="text" name="nid" required><br><br>
+
+    <button type="submit">Complete Signup</button>
+</form>

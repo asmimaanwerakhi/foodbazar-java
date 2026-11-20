@@ -1,0 +1,59 @@
+<!-- Error message -->
+<p style="color:red;" th:text="${error}"></p>
+
+<h2>Delivery Boy Dashboard</h2>
+
+<!-- ================= PROFILE EXISTS ================= -->
+<div th:if="${profile != null}">
+
+    <h3>My Info</h3>
+    Name: <span th:text="${profile.name}"></span><br>
+    Contact: <span th:text="${profile.contact}"></span><br>
+    Status: <b th:text="${profile.availability}"></b><br>
+    Total Income: ৳ <b th:text="${income}"></b>
+
+    <hr>
+
+    <!-- ========== Pending Requests (AVAILABLE) ========== -->
+    <div th:if="${profile.availability == 'AVAILABLE'}">
+        <h3>Pending Delivery Requests</h3>
+
+        <div th:if="${#lists.isEmpty(requests)}">
+            <p>No pending requests</p>
+        </div>
+
+        <div th:each="r : ${requests}">
+            Order ID: <span th:text="${r.orderId}"></span><br>
+            Address: <span th:text="${r.deliveryAddress}"></span><br>
+            Charge: ৳ <span th:text="${r.deliveryCharge}"></span>
+
+            <form method="post" action="/delivery/accept">
+                <input type="hidden" name="requestId" th:value="${r.id}">
+                <button type="submit">Accept</button>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+    <!-- ========== Active Delivery (BUSY) ========== -->
+    <div th:if="${profile.availability == 'BUSY' and activeDelivery != null}">
+        <h3>Current Delivery</h3>
+
+        Order ID: <span th:text="${activeDelivery.orderId}"></span><br>
+        Address: <span th:text="${activeDelivery.deliveryAddress}"></span>
+
+        <form method="post" action="/delivery/complete">
+            <input type="hidden" name="logId" th:value="${activeDelivery.id}">
+            <button type="submit">Mark Completed</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- ================= PROFILE NOT FOUND ================= -->
+<div th:if="${profile == null}">
+    <p style="color:red;">
+        Delivery profile not found.<br>
+        Please complete delivery signup first.
+    </p>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+
+<div th:replace="~{fragments/headermenu :: headermenu}"></div>
+
+<h2 style="margin:20px;">👤 User Dashboard</h2>
+
+<div style="margin:20px; padding:15px; border:1px solid #ddd; width:400px;">
+
+    <p>
+        <b>Name:</b>
+        <span th:text="${profile != null ? profile.name : 'N/A'}"></span>
+    </p>
+
+    <p>
+        <b>NID:</b>
+        <span th:text="${profile != null ? profile.nid : 'N/A'}"></span>
+    </p>
+
+    <p>
+        <b>Total Orders:</b>
+        <span th:text="${totalOrders}"></span>
+    </p>
+
+</div>
+
+<div style="margin:20px;">
+    <a href="/user/orders"><button>📦 My Orders</button></a>
+    <a href="/"><button>🏠 Home</button></a>
+    <a href="/user/logout"><button>🚪 Logout</button></a>
+</div>
+
+<div th:replace="~{fragments/footermenu :: footermenu}"></div>
+
+</body>
+</html>

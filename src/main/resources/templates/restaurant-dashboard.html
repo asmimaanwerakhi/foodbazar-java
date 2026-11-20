@@ -1,0 +1,52 @@
+<h2>Restaurant Dashboard</h2>
+
+<div th:if="${profile != null}">
+    <h3>Restaurant Info</h3>
+    Name: <span th:text="${profile.restaurantName}"></span><br>
+    Owner: <span th:text="${profile.ownerName}"></span><br>
+    Address: <span th:text="${profile.address}"></span><br>
+    Status: <b th:text="${profile.status}"></b>
+</div>
+
+<div th:if="${profile == null}">
+    <p style="color:red;">
+        Restaurant profile not found.<br>
+        Please complete restaurant signup.
+    </p>
+</div>
+
+<hr>
+
+<!-- Future buttons -->
+<h2>My Food Posts</h2>
+
+<div th:each="f : ${foods}">
+    <h3 th:text="${f.foodName}"></h3>
+    Price: ৳ <span th:text="${f.price}"></span><br>
+    <p th:text="${f.description}"></p>
+
+    <img th:src="@{'/uploads/' + ${f.imageName}}"
+         width="200">
+
+    <hr>
+</div>
+
+<a href="/restaurant/food/add">➕ Add New Food</a><br>
+<a href="/restaurant/dashboard">⬅ Dashboard</a>
+
+
+<h2>📦 Incoming Orders</h2>
+
+<div th:each="o : ${orders}">
+    Order ID: <b th:text="${o.id}"></b><br>
+    Quantity: <span th:text="${o.quantity}"></span><br>
+    Address: <span th:text="${o.deliveryAddress}"></span><br>
+    Status: <b th:text="${o.status}"></b>
+
+    <form method="post" action="/restaurant/send-delivery">
+        <input type="hidden" name="orderId" th:value="${o.id}">
+        <button type="submit">🚚 Send for Delivery</button>
+    </form>
+    <hr>
+</div>
+<p>🚚 Delivery Request (coming next)</p>

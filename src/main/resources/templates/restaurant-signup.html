@@ -1,0 +1,19 @@
+<h2>Restaurant Information</h2>
+
+<form method="post" action="/signup/restaurant">
+    <input type="hidden" name="userId" th:value="${userId}"/>
+
+    Restaurant Name:<br>
+    <input type="text" name="restaurantName" required><br><br>
+
+    Owner Name:<br>
+    <input type="text" name="ownerName" required><br><br>
+
+    Trade ID:<br>
+    <input type="text" name="tradeId" required><br><br>
+
+    Address:<br>
+    <textarea name="address" required></textarea><br><br>
+
+    <button type="submit">Complete Signup</button>
+</form>
